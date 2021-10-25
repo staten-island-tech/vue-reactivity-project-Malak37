@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/sandwiches.jpg" />
+    <img alt="Sandwich picture" src="./assets/sandwiches.jpg" />
     <Sandwich msg="Make your Sandwich!" />
   </div>
 </template>

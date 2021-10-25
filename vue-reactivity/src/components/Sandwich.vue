@@ -8,19 +8,19 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">{{ item.type }}</li>
+          <li :v-for="item in items">{{ items.type }}</li>
         </ul>
       </div>
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">{{ item.type }}</li>
+          <li :v-for="item in items">{{ items.type }}</li>
         </ul>
       </div>
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">{{ item.type }}</li>
+          <li :v-for="item in items">{{ items.type }}</li>
         </ul>
       </div>
     </div>

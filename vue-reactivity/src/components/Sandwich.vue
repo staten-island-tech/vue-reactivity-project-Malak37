@@ -8,24 +8,24 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">
-            <button>{{ item.type }}</button>
+          <li v-for="bread in breads" :key="bread">
+            <button>{{ bread.type }}</button>
           </li>
         </ul>
       </div>
       <div class="column">
-        <h3>Bread Options</h3>
+        <h3>Meat Options</h3>
         <ul>
-          <li :v-for="item in items">
-            <button>{{ item.type }}</button>
+          <li v-for="meat in meats" :key="meat">
+            <button>{{ meat.type }}</button>
           </li>
         </ul>
       </div>
       <div class="column">
-        <h3>Bread Options</h3>
+        <h3>Veggie Options</h3>
         <ul>
-          <li :v-for="item in items">
-            <button>{{ item.type }}</button>
+          <li v-for="veggie in veggies" :key="veggie">
+            <button>{{ veggie.type }}</button>
           </li>
         </ul>
       </div>
@@ -41,7 +41,13 @@ export default {
   },
   data() {
     return {
-      items: [{ type: "Sourdough" }, { type: "Toast" }, { type: "Italian" }],
+      breads: [{ type: "Sourdough" }, { type: "Toast" }, { type: "Italian" }],
+      meats: [
+        { type: "Turkey" },
+        { type: "Beef Roast" },
+        { type: "Chicken Breast" },
+      ],
+      veggies: [{ type: "Lettuce" }, { type: "Cucumber" }, { type: "Tomato" }],
     };
   },
 };

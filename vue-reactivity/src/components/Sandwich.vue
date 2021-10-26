@@ -8,19 +8,25 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">{{ items.type }}</li>
+          <li :v-for="item in items">
+            <button>{{ item.type }}</button>
+          </li>
         </ul>
       </div>
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">{{ items.type }}</li>
+          <li :v-for="item in items">
+            <button>{{ item.type }}</button>
+          </li>
         </ul>
       </div>
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li :v-for="item in items">{{ items.type }}</li>
+          <li :v-for="item in items">
+            <button>{{ item.type }}</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -55,16 +61,16 @@ export default {
   justify-content: space-around;
 }
 
-//ul {
-//list-style-type: none;
-//padding: 0;
-// display: flex;
-//flex-direction: column;
-//}
-//li {
-// //display: inline-block;
-// margin: 0 10px;
-//display: flex;
-// flex-direction: column;
-//}
+ul {
+  list-style-type: none;
+  //padding: 0;
+  // display: flex;
+  //flex-direction: column;
+  //}
+  //li {
+  // //display: inline-block;
+  // margin: 0 10px;
+  //display: flex;
+  // flex-direction: column;
+}
 </style>

@@ -47,13 +47,16 @@ export default {
   },
   data() {
     return {
-      ingredients: [
-        { name: breads, types: ["Sourdough", "Toast", "Italian"] },
-        { name: meats, types: ["Turkey", "Beef Roast", "Chicken Breast"] },
-        { name: veggies, types: ["Lettuce", "Cucumber", "Tomato"] },
-      ],
+      stuff: {
+        ingredients: [
+        { name: "breads", types: ["Sourdough", "Toast", "Italian"] },
+        { name: "meats", types: ["Turkey", "Beef Roast", "Chicken Breast"] },
+        { name: "veggies", types: ["Lettuce", "Cucumber", "Tomato"] },
+        ]
+      },
     };
   },
+  
   methods: {
     addIngredient: function (e) {
       this.ingredients.push({
@@ -61,6 +64,7 @@ export default {
         meat: this.ingredients[0].name.forEach(),
         vegg: this.ingredients[0].name.forEach(),
       });
+      e.preventDefault();
     },
   },
 };

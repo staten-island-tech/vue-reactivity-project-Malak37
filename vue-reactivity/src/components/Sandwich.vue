@@ -9,7 +9,9 @@
         <h3>Bread Options</h3>
         <ul>
           <li v-for="bread in breads" :key="bread">
-            <button @click="addIngredient">{{ bread.type }}</button>
+            <button @click="addIngredient">
+              {{ ingredients[0].types.forEach() }}
+            </button>
           </li>
         </ul>
       </div>
@@ -17,7 +19,9 @@
         <h3>Meat Options</h3>
         <ul>
           <li v-for="meat in meats" :key="meat">
-            <button @click="addIngredient">{{ meat.type }}</button>
+            <button @click="addIngredient">
+              {{ ingredients[1].types.forEach() }}
+            </button>
           </li>
         </ul>
       </div>
@@ -25,7 +29,9 @@
         <h3>Veggie Options</h3>
         <ul>
           <li v-for="veggie in veggies" :key="veggie">
-            <button @click="addIngredient">{{ veggie.type }}</button>
+            <button @click="addIngredient">
+              {{ ingredients[2].types.forEach() }}
+            </button>
           </li>
         </ul>
       </div>
@@ -41,25 +47,21 @@ export default {
   },
   data() {
     return {
-      ingredients:[
-        breads: [{ type: "Sourdough" }, { type: "Toast" }, { type: "Italian" }],
-        meats: [
-        { type: "Turkey" },
-        { type: "Beef Roast" },
-        { type: "Chicken Breast" },
-        ],
-        veggies: [{ type: "Lettuce" }, { type: "Cucumber" }, { type: "Tomato" }],
+      ingredients: [
+        { name: breads, types: ["Sourdough", "Toast", "Italian"] },
+        { name: meats, types: ["Turkey", "Beef Roast", "Chicken Breast"] },
+        { name: veggies, types: ["Lettuce", "Cucumber", "Tomato"] },
       ],
-      };
-    methods:{
-      addIngredient: function(e){
-        this.ingredients.push({
-          bread: this.bread.type,
-          meat: this.meats.type,
-          vegg: this.veggies.type,
-        })
-      }
-    }
+    };
+  },
+  methods: {
+    addIngredient: function (e) {
+      this.ingredients.push({
+        bread: this.ingredients[0].name.forEach(),
+        meat: this.ingredients[0].name.forEach(),
+        vegg: this.ingredients[0].name.forEach(),
+      });
+    },
   },
 };
 </script>

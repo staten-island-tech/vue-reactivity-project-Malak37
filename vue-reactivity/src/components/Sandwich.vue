@@ -10,7 +10,7 @@
         <ul>
           <li v-for="bread in breads" :key="bread">
             <button @click="addIngredient">
-              {{ ingredients[0].types.forEach() }}
+              {{ ingredients[0].name }}
             </button>
           </li>
         </ul>
@@ -20,7 +20,7 @@
         <ul>
           <li v-for="meat in meats" :key="meat">
             <button @click="addIngredient">
-              {{ ingredients[1].types.forEach() }}
+              {{ ingredients[1].name }}
             </button>
           </li>
         </ul>
@@ -30,7 +30,7 @@
         <ul>
           <li v-for="veggie in veggies" :key="veggie">
             <button @click="addIngredient">
-              {{ ingredients[2].types.forEach() }}
+              {{ ingredients[2].name }}
             </button>
           </li>
         </ul>
@@ -60,9 +60,9 @@ export default {
   methods: {
     addIngredient: function (e) {
       this.ingredients.push({
-        bread: this.ingredients[0].name.forEach(),
-        meat: this.ingredients[0].name.forEach(),
-        vegg: this.ingredients[0].name.forEach(),
+        bread: this.stuff.ingredients[0].types.forEach(),
+        meat: this.stuff.ingredients[1].types.forEach(),
+        vegg: this.stuff.ingredients[2].types.forEach(),
       });
       e.preventDefault();
     },

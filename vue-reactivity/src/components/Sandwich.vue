@@ -8,9 +8,9 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li v-for="bread in breads" :key="bread">
+          <li v-for="bread in ingredients" :key="bread">
             <button @click="addIngredient">
-              {{ ingredients[0].name }}
+              {{ ingredients[0].types[0] }}
             </button>
           </li>
         </ul>
@@ -18,9 +18,9 @@
       <div class="column">
         <h3>Meat Options</h3>
         <ul>
-          <li v-for="meat in meats" :key="meat">
+          <li v-for="meat in ingredients" :key="meat">
             <button @click="addIngredient">
-              {{ ingredients[1].name }}
+              {{ ingredients[1].types[0] }}
             </button>
           </li>
         </ul>
@@ -28,9 +28,9 @@
       <div class="column">
         <h3>Veggie Options</h3>
         <ul>
-          <li v-for="veggie in veggies" :key="veggie">
+          <li v-for="veggie in ingredients" :key="veggie">
             <button @click="addIngredient">
-              {{ ingredients[2].name }}
+              {{ ingredients[2].types[0]}}
             </button>
           </li>
         </ul>
@@ -47,22 +47,20 @@ export default {
   },
   data() {
     return {
-      stuff: {
         ingredients: [
         { name: "breads", types: ["Sourdough", "Toast", "Italian"] },
         { name: "meats", types: ["Turkey", "Beef Roast", "Chicken Breast"] },
         { name: "veggies", types: ["Lettuce", "Cucumber", "Tomato"] },
         ]
-      },
     };
   },
   
   methods: {
     addIngredient: function (e) {
       this.ingredients.push({
-        bread: this.stuff.ingredients[0].types.forEach(),
-        meat: this.stuff.ingredients[1].types.forEach(),
-        vegg: this.stuff.ingredients[2].types.forEach(),
+        bread: this.ingredients[0].types.forEach(),
+        meat: this.ingredients[1].types.forEach(),
+        vegg: this.ingredients[2].types.forEach(),
       });
       e.preventDefault();
     },

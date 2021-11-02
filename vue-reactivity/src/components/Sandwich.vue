@@ -55,20 +55,20 @@ export default {
       breads: ["Sourdough", "Toast", "Italian"],
       meats: ["Turkey", "Beef Roast", "Chicken Breast"],
       veggies: ["Lettuce", "Cucumber", "Tomato"],
-      order: {bread:"", meat:"", veggie:""},
+      order: [{bread:""}, {meat:""}, {veggie:""}],
   };
   },
   methods: {
      addBread() {
-       let orderBread = order.bread;
+       let orderBread = order[0].bread;
        this.breads.push(orderBread);
       },  
      addMeat() {
-       let orderMeat = order.meat;
+       let orderMeat = order[1].meat;
        this.meats.push(orderMeat);
       },  
      addVeggie() {
-       let orderVeggie = order.veggie;
+       let orderVeggie = order[2].veggie;
        this.veggies.push(orderVeggie);
       },  
 

@@ -8,9 +8,9 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li v-for="bread in ingredients" :key="bread">
-            <button @click="addIngredient">
-              {{ ingredients[0].types[0] }}
+          <li v-for="bread in breads" :key="bread">
+            <button @click="addBread">
+              {{ bread }}
             </button>
           </li>
         </ul>
@@ -18,9 +18,9 @@
       <div class="column">
         <h3>Meat Options</h3>
         <ul>
-          <li v-for="meat in ingredients" :key="meat">
-            <button @click="addIngredient">
-              {{ breads[1] }}
+          <li v-for="meat in meats" :key="meat">
+            <button @click="addMeat">
+              {{ meat }}
             </button>
           </li>
         </ul>
@@ -28,14 +28,19 @@
       <div class="column">
         <h3>Veggie Options</h3>
         <ul>
-          <li v-for="veggie in ingredients" :key="veggie">
-            <button @click="addIngredient">
-              {{ ingredients[2].types[0] }}
+          <li v-for="veggie in veggies" :key="veggie">
+            <button @click="addVeggie">
+              {{ veggie }}
             </button>
           </li>
         </ul>
       </div>
+      <h3>Order</h3>
+      <ul>
+        <li v-for="item in order" :key="item"></li>
+      </ul>
     </div>
+    <!-- <Submit @ingredient-submitted="addIngredient"></Submit> -->
   </div>
 </template>
 
@@ -47,27 +52,29 @@ export default {
   },
   data() {
     return {
-      ingredients: [
-        { name: "breads", types: ["Sourdough", "Toast", "Italian"] },
-        { name: "meats", types: ["Turkey", "Beef Roast", "Chicken Breast"] },
-        { name: "veggies", types: ["Lettuce", "Cucumber", "Tomato"] },
-      ],
       breads: ["Sourdough", "Toast", "Italian"],
-    };
+      meats: ["Turkey", "Beef Roast", "Chicken Breast"],
+      veggies: ["Lettuce", "Cucumber", "Tomato"],
+      order: {bread:"", meat:"", veggie:""},
+  };
   },
-
   methods: {
-    addIngredient: function (e) {
-      this.ingredients.push({
-        bread: this.ingredients[0].types.forEach(),
-        meat: this.ingredients[1].types.forEach(),
-        vegg: this.ingredients[2].types.forEach(),
-      });
-      e.preventDefault();
-    },
+     addBread() {
+       let orderBread = order.bread;
+       this.breads.push(orderBread);
+      },  
+     addMeat() {
+       let orderMeat = order.meat;
+       this.meats.push(orderMeat);
+      },  
+     addVeggie() {
+       let orderVeggie = order.veggie;
+       this.veggies.push(orderVeggie);
+      },  
+
   },
 };
-console.log(this.ingredients[2].types[0]);
+//console.log(this.ingredients[2].types[0]);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -30,7 +30,7 @@
         <ul>
           <li v-for="veggie in ingredients" :key="veggie">
             <button @click="addIngredient">
-              {{ ingredients[2].types[0]}}
+              {{ ingredients[2].types[0] }}
             </button>
           </li>
         </ul>
@@ -47,18 +47,16 @@ export default {
   },
   data() {
     return {
-        ingredients: [
+      ingredients: [
         { name: "breads", types: ["Sourdough", "Toast", "Italian"] },
         { name: "meats", types: ["Turkey", "Beef Roast", "Chicken Breast"] },
         { name: "veggies", types: ["Lettuce", "Cucumber", "Tomato"] },
-        ],
-        breads: [
-          "Sourdough", "Toast", "Italian"
-        ],
+      ],
+      breads: ["Sourdough", "Toast", "Italian"],
     };
   },
-  
-   methods: {
+
+  methods: {
     addIngredient: function (e) {
       this.ingredients.push({
         bread: this.ingredients[0].types.forEach(),
@@ -67,9 +65,9 @@ export default {
       });
       e.preventDefault();
     },
-  }, 
+  },
 };
-console.log(ingredients[2].types[0]);
+console.log(this.ingredients[2].types[0]);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

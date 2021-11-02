@@ -35,13 +35,12 @@
           </li>
         </ul>
       </div>
-      <div>
+      <div class="column">
         <h3>Order</h3>
         <ul>
           <li v-for="(item,index) in order" :key="index">{{item}}</li>
           <button type="submit" value="Submit" @click="onSubmit(index)" @submit.prevent="onSubmit(index)">Submit Order</button>
         </ul>
-        
       </div>
     </div>
     <!-- <Submit @ingredient-submitted="addIngredient"></Submit> -->
@@ -112,6 +111,7 @@ export default {
 //display: flex;
 //flex-direction: column;
 //}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -119,8 +119,20 @@ export default {
   justify-content: space-around;
 }
 
+button{
+  border-radius: 3rem;
+  border-color: rgb(255, 94, 94);
+  background-color: rgb(250, 211, 211);
+  margin: .5rem;
+  font-size: 1rem;
+}
+
 ul {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   //padding: 0;
   // display: flex;
   //flex-direction: column;

@@ -8,8 +8,8 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li v-for="(bread,id) in breads" :key="id">
-            <button @click="addBread">
+          <li v-for="(bread,index) in breads" :key="index">
+            <button @click="addBread(index)">
               {{ bread }}
             </button>
           </li>
@@ -18,8 +18,8 @@
       <div class="column">
         <h3>Meat Options</h3>
         <ul>
-          <li v-for="(meat,id) in meats" :key="id">
-            <button @click="addMeat">
+          <li v-for="(meat,index) in meats" :key="index">
+            <button @click="addMeat(index)">
               {{ meat }}
             </button>
           </li>
@@ -28,8 +28,8 @@
       <div class="column">
         <h3>Veggie Options</h3>
         <ul>
-          <li v-for="(veggie,id) in veggies" :key="id">
-            <button @click="addVeggie">
+          <li v-for="(veggie,index) in veggies" :key="index">
+            <button @click="addVeggie(index)">
               {{ veggie }}
             </button>
           </li>
@@ -37,7 +37,7 @@
       </div>
       <h3>Order</h3>
       <ul>
-        <li v-for="(item,id) in order" :key="id">{{item}}</li>
+        <li v-for="(item,index) in order" :key="index">{{item}}</li>
       </ul>
     </div>
     <!-- <Submit @ingredient-submitted="addIngredient"></Submit> -->
@@ -63,16 +63,16 @@ export default {
   };
   },
   methods: {
-     addBread() {
-       let orderBread = {newBreads: this.breads[0]}
+     addBread(index) {
+       let orderBread = {newBreads: this.breads[index]}
        this.order.push(orderBread.newBreads);
       },  
-     addMeat() {
-       let orderMeat = {newMeats: this.meats[0]}
+     addMeat(index) {
+       let orderMeat = {newMeats: this.meats[index]}
        this.order.push(orderMeat.newMeats);
       },  
-     addVeggie() {
-       let orderVeggie = {newVeggies: this.veggies[0]}
+     addVeggie(index) {
+       let orderVeggie = {newVeggies: this.veggies[index]}
        this.order.push(orderVeggie.newVeggies);
       },  
 

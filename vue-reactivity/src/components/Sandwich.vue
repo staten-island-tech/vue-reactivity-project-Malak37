@@ -35,10 +35,13 @@
           </li>
         </ul>
       </div>
-      <h3>Order</h3>
-      <ul>
-        <li v-for="(item,index) in order" :key="index">{{item}}</li>
-      </ul>
+      <div>
+        <h3>Order</h3>
+        <ul>
+          <li v-for="(item,index) in order" :key="index">{{item}}</li>
+        </ul>
+        <button @click="OnSubmit()">Submit Order</button>
+      </div>
     </div>
     <!-- <Submit @ingredient-submitted="addIngredient"></Submit> -->
   </div>
@@ -75,6 +78,24 @@ export default {
        let orderVeggie = {newVeggies: this.veggies[index]}
        this.order.push(orderVeggie.newVeggies);
       },  
+      onSubmit() {
+      if (this.breads[index] && this.meats[index] && this.veggies[index]) {
+        let sandwichOrder = {
+          newBreads: this.breads[index],
+          newMeats: this.meats[index],
+          newVeggies: this.veggies[index],
+        };
+        this.$emit("order-submitted", sandwichOrder);
+        this.breads[index] = null;
+        this.meats[index] = null;
+        this.veggies[index] = null;
+      } else {
+        if (!this.breads[index]) this.errors.push("Name required.");
+        if (!this.meats[index]) this.errors.push("Review required.");
+        if (!this.veggies[index]) this.errors.push("Rating required.");
+      }
+    },
+  },
 
   },
 };

@@ -8,7 +8,7 @@
       <div class="column">
         <h3>Bread Options</h3>
         <ul>
-          <li v-for="bread in breads" :key="bread">
+          <li v-for="(bread,id) in breads" :key="id">
             <button @click="addBread">
               {{ bread }}
             </button>
@@ -18,7 +18,7 @@
       <div class="column">
         <h3>Meat Options</h3>
         <ul>
-          <li v-for="meat in meats" :key="meat">
+          <li v-for="(meat,id) in meats" :key="id">
             <button @click="addMeat">
               {{ meat }}
             </button>
@@ -28,7 +28,7 @@
       <div class="column">
         <h3>Veggie Options</h3>
         <ul>
-          <li v-for="veggie in veggies" :key="veggie">
+          <li v-for="(veggie,id) in veggies" :key="id">
             <button @click="addVeggie">
               {{ veggie }}
             </button>
@@ -37,7 +37,7 @@
       </div>
       <h3>Order</h3>
       <ul>
-        <li v-for="item in order" :key="item"></li>
+        <li v-for="(item,id) in order" :key="id">{{item}}</li>
       </ul>
     </div>
     <!-- <Submit @ingredient-submitted="addIngredient"></Submit> -->
@@ -55,21 +55,25 @@ export default {
       breads: ["Sourdough", "Toast", "Italian"],
       meats: ["Turkey", "Beef Roast", "Chicken Breast"],
       veggies: ["Lettuce", "Cucumber", "Tomato"],
-      order: [{bread:""}, {meat:""}, {veggie:""}],
+      //order: [{bread:""}, {meat:""}, {veggie:""}],
+      order:[],
+      newBreads: null,
+      newMeats: null,
+      newVeggies: null,
   };
   },
   methods: {
      addBread() {
-       let orderBread = order[0].bread;
-       this.breads.push(orderBread);
+       let orderBread = {newBreads: this.breads[0]}
+       this.order.push(orderBread.newBreads);
       },  
      addMeat() {
-       let orderMeat = order[1].meat;
-       this.meats.push(orderMeat);
+       let orderMeat = {newMeats: this.meats[0]}
+       this.order.push(orderMeat.newMeats);
       },  
      addVeggie() {
-       let orderVeggie = order[2].veggie;
-       this.veggies.push(orderVeggie);
+       let orderVeggie = {newVeggies: this.veggies[0]}
+       this.order.push(orderVeggie.newVeggies);
       },  
 
   },

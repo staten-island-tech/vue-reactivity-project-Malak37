@@ -39,8 +39,9 @@
         <h3>Order</h3>
         <ul>
           <li v-for="(item,index) in order" :key="index">{{item}}</li>
+          <button type="submit" value="Submit" @click="onSubmit(index)" @submit.prevent="onSubmit(index)">Submit Order</button>
         </ul>
-        <button @click="OnSubmit()">Submit Order</button>
+        
       </div>
     </div>
     <!-- <Submit @ingredient-submitted="addIngredient"></Submit> -->
@@ -63,6 +64,7 @@ export default {
       newBreads: null,
       newMeats: null,
       newVeggies: null,
+      errors:[],
   };
   },
   methods: {
@@ -78,27 +80,28 @@ export default {
        let orderVeggie = {newVeggies: this.veggies[index]}
        this.order.push(orderVeggie.newVeggies);
       },  
-      onSubmit() {
-      if (this.breads[index] && this.meats[index] && this.veggies[index]) {
+     onSubmit(index) {
+        if (this.breads[index] && this.meats[index] && this.veggies[index]) {
         let sandwichOrder = {
-          newBreads: this.breads[index],
+          order: this.order[index],
+          /* newBreads: this.breads[index],
           newMeats: this.meats[index],
-          newVeggies: this.veggies[index],
+          newVeggies: this.veggies[index], */
         };
         this.$emit("order-submitted", sandwichOrder);
-        this.breads[index] = null;
+        this.order[index] = null;
+        /* this.breads[index] = null;
         this.meats[index] = null;
-        this.veggies[index] = null;
+        this.veggies[index] = null; */
       } else {
-        if (!this.breads[index]) this.errors.push("Name required.");
-        if (!this.meats[index]) this.errors.push("Review required.");
-        if (!this.veggies[index]) this.errors.push("Rating required.");
+        if (!this.breads[index]) this.errors.push("Bread required.");
+        if (!this.meats[index]) this.errors.push("Meat required.");
+        if (!this.veggies[index]) this.errors.push("Veggie required.");
       }
     },
   },
 
-  },
-};
+  }
 //console.log(this.ingredients[2].types[0]);
 </script>
 

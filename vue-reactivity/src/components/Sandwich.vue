@@ -39,7 +39,7 @@
         <h3>Order</h3>
         <ul>
           <li v-for="(item,index) in order" :key="index">{{item}}</li>
-          <button type="submit" value="Submit" @click="onSubmit(index)" @submit.prevent="onSubmit(index)">Submit Order</button>
+          <button type="submit" value="Submit" @click="onSubmit()" @submit.prevent="onSubmit()">Submit Order</button>
         </ul>
       </div>
     </div>
@@ -76,27 +76,28 @@ export default {
        this.order.push(orderMeat.newMeats);
       },  
      addVeggie(index) {
+    
        let orderVeggie = {newVeggies: this.veggies[index]}
        this.order.push(orderVeggie.newVeggies);
       },  
-     onSubmit(index) {
+     onSubmit() {
+       this.order.forEach((item)=>{
+         console.log(item)
+       })
+    /*    console.log(index)
         if (this.breads[index] && this.meats[index] && this.veggies[index]) {
         let sandwichOrder = {
           order: this.order[index],
-          /* newBreads: this.breads[index],
-          newMeats: this.meats[index],
-          newVeggies: this.veggies[index], */
+   
         };
         this.$emit("order-submitted", sandwichOrder);
         this.order[index] = null;
-        /* this.breads[index] = null;
-        this.meats[index] = null;
-        this.veggies[index] = null; */
+      
       } else {
         if (!this.breads[index]) this.errors.push("Bread required.");
         if (!this.meats[index]) this.errors.push("Meat required.");
         if (!this.veggies[index]) this.errors.push("Veggie required.");
-      }
+      } */
     },
   },
 
